@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+	html {
+	  height: 100%;
+	  width: 100%;
+	}
+/*设置页面背景色*/
+	body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  background: linear-gradient(#d4fc79,#96e6a1);
+	}
+	
+/*将搜索框置于页面正中间*/
+  #div1 {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  -webkit-transform: translate3d(-50%, -50%, 0);
+			  transform: translate3d(-50%, -50%, 0);
+  }
+/*消除div中元素之间的缝隙*/
+  .inputSpan{
+    font-size:0;
+  }
+/*使多个元素处于同一行*/
+  .div-inline{
+  	display:inline;
+  }
+/*设置选择框的样式*/
+  .selsectStyle{
+    border:solid #FFFFFF;
+	background:#FFFFFF;
+	border-width:17px;
+	font-size:16px;
+	color:#000000;
+  }
+/*设置文本框的样式*/
+  .searchInputText{
+    border:1px solid #ffffff;
+	background:#FFFFFF;
+	border-width:16px;
+	font-size:16px;
+  }
+/*设置搜索按钮的样式*/
+  .searchInputButton{
+    border:1px solid #0099ff;
+	background:#0099FF;
+	border-width:16px;
+	font-size:16px;
+	color:#ffffff;
+  }
+</style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>我的主页</title>
+</head>
+
+<body>
+<div id="div1">
+			<div class="div-inline inputSpan">
+			  <select name="searchSelect" id="searchSelect" class="selsectStyle" style="outline:none">
+				  <option value="https://www.baidu.com/s?wd=">百度</option>
+				  <option value="https://s.taobao.com/search?q=">淘宝</option>
+				  <option value="https://www.sogou.com/web?query=">搜狗</option>
+			  </select>
+			  <input type="text" plpaceholder="请输入搜索词" maxlength="100" id="baiduSearch" class="searchInputText" style="outline:none">
+			  <input type="button" value="Search"  onclick="loading();" id="baiduClick" class="searchInputButton" style="outline:none">
+			</div>
+</div>
+<script> 
+	function loading(){
+       	var selectIndex=document.getElementById("searchSelect").selectedIndex;
+		var selectValue=document.getElementById("searchSelect").options[selectIndex].value;
+		var inputTextValue=document.getElementById("baiduSearch").value;
+        var url=selectValue+inputTextValue;
+        window.open(url);
+	}
+</script>
+</body>
+</html>
